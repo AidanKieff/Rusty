@@ -1,3 +1,11 @@
+use std::ops::{Deref, DerefMut};
+
+struct MysmartPointer<T> {
+    value: T
+}
+
+
+
 fn main() {
     let s = Box::new("let's get it".to_owned());
 
@@ -7,5 +15,5 @@ fn main() {
 
 fn print(s: &str) {
     println!("{s}");
-    
+
 }
