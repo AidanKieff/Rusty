@@ -11,3 +11,9 @@ edition = "2021"
 [[bin]]
 name = "hw1"
 path = "src/hw1.rs"
+[[bin]]
+name = "hw2"
+path = "src/hw2.rs"
+[[bin]]
+name = "hw3"
+path = "src/hw3.rs"

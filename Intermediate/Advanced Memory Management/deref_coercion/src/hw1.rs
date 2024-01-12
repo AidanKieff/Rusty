@@ -29,4 +29,5 @@ fn main() {
     let emp3 = Rc::new(emp2);
     // TODO: call print_details on emp3
     emp3.print_details();
+
 }
