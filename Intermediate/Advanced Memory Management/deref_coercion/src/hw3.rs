@@ -13,7 +13,9 @@ fn main() {
     print_value(&owner2);
 }
 
-fn update_value<T>(owner: &Rc<RefCell<T>>, value: T) {}
+fn update_value<T>(owner: &Rc<RefCell<T>>, value: T) {
+    *owner.borrow_mut() = value;
+}
 
 fn print_value<T: Debug>(owner: &Rc<RefCell<T>>) {
     println!("{:?}", owner.borrow());
