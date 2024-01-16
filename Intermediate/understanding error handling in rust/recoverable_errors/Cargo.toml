@@ -8,3 +8,6 @@ edition = "2021"
 [dependencies]
 
 
+[[bin]]
+name = "hw4"
+path = "src/hw4.rs"
