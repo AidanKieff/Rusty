@@ -10,4 +10,4 @@ edition = "2021"
 
 [[bin]]
 name = "hw1"
-path = "src/hw1"
+path = "src/hw1.rs"

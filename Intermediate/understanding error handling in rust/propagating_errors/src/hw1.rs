@@ -14,23 +14,23 @@ impl Expression {
         match self {
             Val(val) => Ok(*val),
             Add(exp1, exp2) => {
-                let val1 = exp1.evaluate();
-                let val2 = exp2.evaluate();
+                let val1 = exp1.evaluate()?;
+                let val2 = exp2.evaluate()?;
                 Ok(val1 + val2)
             }
             Sub(exp1, exp2) => {
-                let val1 = exp1.evaluate();
-                let val2 = exp2.evaluate();
+                let val1 = exp1.evaluate()?;
+                let val2 = exp2.evaluate()?;
                 Ok(val1 - val2)
             }
             Mul(exp1, exp2) => {
-                let val1 = exp1.evaluate();
-                let val2 = exp2.evaluate();
+                let val1 = exp1.evaluate()?;
+                let val2 = exp2.evaluate()?;
                 Ok(val1 * val2)
             }
             Div(exp1, exp2) => {
-                let val1 = exp1.evaluate();
-                let val2 = exp2.evaluate();
+                let val1 = exp1.evaluate()?;
+                let val2 = exp2.evaluate()?;
                 if val2 == 0 {
                     return Err("Can not divide by zero".to_string());
                 }
@@ -45,10 +45,22 @@ impl Expression {
 
 fn main() {
     // calculate: 2 + 3 * 4
-    let exp = Add(
-        Val(2).to_boxed(),
-        Mul(Val(3).to_boxed(), Val(4).to_boxed()).to_boxed(),
+    // let exp = Add(
+    //     Val(2).to_boxed(),
+    //     Mul(Val(3).to_boxed(), Val(4).to_boxed()).to_boxed(),
+    // );
+    let exp = Sub(
+        Mul(
+            Val(6).to_boxed(), 
+            Val(3).to_boxed()
+        ).to_boxed(),
+        
+        Div(
+            Mul(Val(3).to_boxed(), Val(4).to_boxed()).to_boxed(),
+            Val(1).to_boxed(),
+        ).to_boxed(),
     );
+
     match exp.evaluate() {
         Ok(res) => println!("Expression evaluated to: {res}"),
         Err(error) => println!("Error: {error}"),
