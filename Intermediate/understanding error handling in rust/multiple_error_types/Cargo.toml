@@ -15,3 +15,7 @@ path = "src/hw1.rs"
 [[bin]]
 name = "hw1explored"
 path = "src/hw1explored.rs"
+
+[[bin]]
+name = "hw2"
+path = "src/hw2.rs"
